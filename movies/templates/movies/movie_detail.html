@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+    <center>
+    <h3>{{month}}</h3>
+    <button type="button" class="btn btn-secondary btn-lg">{{day1}}</button>
+    <button type="button" class="btn btn-secondary btn-lg">{{day2}}</button>
+    <button type="button" class="btn btn-secondary btn-lg">{{day3}}</button><br>
+    <hr>
+    <h2 class="mr-2">{{ movie.title }}</h2>
+    <hr>
+    {% for t in data %}
+     <h3>{{ t.theater_name }}<br>
+     <button type="button" class="btn btn-secondary btn-lg">{{t.time_slot1}}</button>
+     <button type="button" class="btn btn-secondary btn-lg">{{t.time_slot2}}</button>
+
+             
+    {% endfor %}
+    </center>
+
+                
+{% endblock %}

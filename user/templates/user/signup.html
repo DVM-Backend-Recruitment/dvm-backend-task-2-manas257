@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+</style>
+   <form method="post" autocomplete="off" >
+        {% csrf_token %}
+        {{signup|crispy}}
+        <button type="Submit">Register</button>
+
+   </form>
+{% endblock content %}

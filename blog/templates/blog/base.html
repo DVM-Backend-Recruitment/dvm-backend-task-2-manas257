@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header Layout with Bootstrap</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="d-flex justify-content-between align-items-center p-3 bg-secondary text-white">
+    <!-- Left-aligned Heading -->
+    <h2><div class="font-weight-bold">NotFlix</div></h2>
+    <a href="/"><button type="button" class="btn btn-outline-primary">Home</button></a>
+
+    <!-- Center-aligned Search Bar -->
+    <form class="form-inline mx-auto" method=POST action="/Search/">
+      {% csrf_token%}
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searched">
+      <button class="btn btn-outline-secondary" type="submit">Search </button>
+    </form>
+
+    <!-- Right-aligned Login and Signup Buttons -->
+    <div>
+      {% block header_buttons %}
+      <a href="/user/login/"><button class="btn btn-light mr-2">Login</button></a>
+      <a href="/user/signup/"><button class="btn btn-warning">Sign Up</button></a>
+      {% endblock %}
+    </div>
+  </header>
+  {% if messages %}
+   {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+      {{ message }}
+    </div>
+   {% endfor %}
+  {% endif %}
+  {% block content %}{% endblock %}
+
+  <!-- Bootstrap JS (optional, for interactive components) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

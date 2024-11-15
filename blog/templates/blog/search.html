@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <center>
+        {% if searched %}
+           <h2>You Searched For Movie {{searched}}</h2><br>
+           {% for movie in movies2 %}
+            <article class="media content-section">
+             <div class="media-body">
+                 <div class="article-metadata">
+                    <h3><a class="mr-2" href="{% url 'movies:movie-details' movie.slug %}">{{ movie.title }}</a></h3>
+                    <small class="text-muted">Director:{{ movie.Director }}</small>
+                 </div>
+                 <p class="article-title">Ratings:{{ movie.Ratings }}%</p>
+              </div>
+            </article>
+           {% endfor %}
+        
+        {% endif %}
+    </center>
+{% endblock content %}

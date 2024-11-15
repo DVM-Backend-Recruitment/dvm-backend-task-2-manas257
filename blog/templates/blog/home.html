@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+
+{% block content %}
+    {% for movie in movies %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <h2><a class="mr-2" href="{% url 'movies:movie-details' movie.slug %}">{{ movie.title }}</a></h2>
+                    <small class="text-muted">Director:{{ movie.Director }}</small>
+                </div>
+                <p class="article-title">Ratings:{{ movie.Ratings }}%</p>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock %}  

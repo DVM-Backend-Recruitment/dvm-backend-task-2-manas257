@@ -1,0 +1,13 @@
+{% extends "movies/movie_detail.html" %}
+{% block content %}
+   {{ block.super}}
+   {% for theater in data %}
+   <article class="media content-section">
+       <div class="media-body">
+           <div class="article-metadata">
+               <h3><a class="mr-2" href="#">{{ theater.theater_name }}</h3></a>
+           </div>
+       </div>
+   </article>
+   {% endfor %}
+{% endblock %}

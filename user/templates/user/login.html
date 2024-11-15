@@ -1,0 +1,10 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form action="login" method="POST" autocomplete="off">
+     {% csrf_token %}
+      {{form|crispy}}
+      <button class="btn btn-outline-info" type="Submit">login</button>
+     
+    </form>
+{% endblock content %}
